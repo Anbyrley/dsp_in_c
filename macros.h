@@ -1,0 +1,106 @@
+/** @file macros.h
+*   @brief Contains macros for helping other modules.
+*
+*
+*  @author Alex N. Byrley (anbyrley)
+*  @date September 2015
+*  @bug No known bugs
+*/
+
+#ifndef MACROS_H
+#define MACROS_H
+
+
+//#define CV_IMWRITE_JPEG_QUALITY 1
+//#define CV_IMWRITE_PNG_COMPRESSION 16
+//#define CV_IMWRITE_PXM_BINARY 32
+
+#define MAX_NUM_CHIPS 32
+#define MAX_NUM_SUBCARRIERS 32
+
+#define MAX_MEL_BANKS 33
+
+#define SPEED_OF_SOUND 343.0
+
+#define MAX_NUM_CHROMOSOMES 128
+#define MAX_NUM_GENES 64
+
+#define EPS pow(2, -52)
+#define ARE_EQUAL_DBL(x,y) (x - y < 2*EPS)
+
+#define MAX_MATRIX_SIZE (1024*1024)
+
+#define MAX_NUM_SIMS 500
+#define MAX_NUM_HARMONICS 50
+
+#define MAX_DICTIONARY_ENTRIES 70000
+#define MAX_NUM_FREQUENCIES 100
+
+#define MAX_NUM_VERTICES 100
+#define MAX_VERTEX_SIZE 10
+
+#define MAX_BEAMFORMER_SENSORS 18
+#define MAX_BEAMFORMER_TAPS 512
+#define MAX_SPECTRAL_MATRIX_SIZE (MAX_BEAMFORMER_SENSORS*MAX_BEAMFORMER_SENSORS)
+#define MAX_BEAMFORMER_CONSTRAINTS (5*((MAX_BEAMFORMER_TAPS*MAX_BEAMFORMER_SENSORS)-1))
+#define MAX_BEAMFORMER_AUTOCORRELATION_MATRIX_SIZE ((MAX_BEAMFORMER_TAPS*MAX_BEAMFORMER_SENSORS)*(MAX_BEAMFORMER_TAPS*MAX_BEAMFORMER_SENSORS))
+#define MAX_BEAMFORMER_CONSTRAINT_MATRIX_SIZE ((MAX_BEAMFORMER_TAPS*MAX_BEAMFORMER_SENSORS)*MAX_BEAMFORMER_CONSTRAINTS)
+
+
+#define MAX_GRID_SIZE (unsigned int)pow(2, ceil(log2(10*MAX_FRAME_LENGTH)))
+
+#define MAX_NUM_QMC_POINTS 8192
+#define MAX_NUM_BITS 26
+#define MAX_QUANTIZATION_VALUES (unsigned int)(1.0/(1.0/pow(2.0,MAX_NUM_BITS-1)))
+
+#define NUM_NEIGHBORS 8
+#define MAX_NUMS 2000
+#define MAX_OBJECTS 128
+
+#define MAX_HEIGHT 1024
+#define MAX_WIDTH 1024
+#define BIG_NUMBER 10000
+
+#define MAX_KERNEL_SAMPLES 4096
+#define MAX_NUM_BINS 4096
+
+//#define MAX_POLYNOMIAL_ORDER 16384
+//#define MAX_POLYNOMIAL_ORDER 4096
+#define MAX_POLYNOMIAL_ORDER 8192
+#define MAX_FRAME_LENGTH MAX_POLYNOMIAL_ORDER
+#define MAX_MAGNITUDE 1.0
+#define MAX_AR_ORDER 1024
+#define MAX_MA_ORDER 1024
+#define MAX_NUM_FRAMES 16
+#define MAX_SIGNAL_LENGTH (MAX_NUM_FRAMES*MAX_FRAME_LENGTH)
+#define MAX_OUTPUT_LENGTH (MAX_MA_ORDER+1 + MAX_AR_ORDER+1 + MAX_FRAME_LENGTH)
+#define MAX_INTERNAL_LENGTH MAX(MAX_MA_ORDER+2,MAX_AR_ORDER+2)
+
+#define ISPOW2(x) (x && !(x & (x-1)))
+#define IS_POW_2(x) (x && !(x & (x-1)))
+#define IS_REAL_THRESHOLD pow(10,-6)
+#define PI 3.14159265359
+#define TWOPI 2*PI
+#define HAVE_MIN
+#define MIN(a,b) ( (a <= b) ? a : b )
+#define HAVE_MAX
+#define MAX(a,b) ( (a <= b) ? b : a )
+#define SWAP(a,b) swap_temp=(a); (a)=(b); (b)=swap_temp;
+#define ROUND_TO_INT(x) ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
+
+#define BLURT printf ("This is line %d of file %s (function %s)\n", __LINE__, __FILE__, __func__)
+
+
+
+#define MAX_RESAMPLING_FACTOR 12
+#define MAX_RESAMPLING_QUEUE_LENGTH (MAX_FRAME_LENGTH)
+
+
+#define MAX_DOWNSAMPLING_FACTOR 64
+#define MAX_NUM_CMFB_FILTERS MAX_DOWNSAMPLING_FACTOR
+#define MAX_QUEUE_LENGTH (MAX_NUM_CMFB_FILTERS*MAX_FRAME_LENGTH)
+//#define MAX_QUEUE_LENGTH (MAX_FRAME_LENGTH)
+#define MAX_CMFB_INPUT_LENGTH (MAX_SIGNAL_LENGTH)
+#define MAX_FILTER_LENGTH 1024
+
+#endif //MACROS_H//
