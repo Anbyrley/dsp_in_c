@@ -40,6 +40,38 @@
 
 //================================================================================================//
 /**
+* @brief This function is the base method for the FFT.
+*
+* Taken from Numerical Recipes in C: The Art of Scientific Computing 2nd Edition. Press et al.
+*
+* @param[in,out] double* data
+* @param[in] int length
+* @param[in] int sign
+*
+* @return NONE
+*/
+//================================================================================================//
+void fft_41(double*, int, int);
+
+
+//================================================================================================//
+/**
+* @brief This function is the base method for the real FFT.
+*
+* Taken from Numerical Recipes in C: The Art of Scientific Computing 2nd Edition. Press et al.
+*
+* @param[in,out] double* data
+* @param[in] int length
+* @param[in] int sign
+*
+* @return NONE
+*/
+//================================================================================================//
+void fft_41_real(double*, int, int);
+
+
+//================================================================================================//
+/**
 * @brief This function runs an FFT for a double precision array.
 *
 * @param[in] double* data
